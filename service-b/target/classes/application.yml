@@ -1,0 +1,15 @@
+server:
+  port: 8003
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8761/eureka/,http://127.0.0.1:8762/eureka/
+    registry-fetch-interval-seconds: 5
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}:@project.version@
+    lease-expiration-duration-in-seconds: 10
+    lease-renewal-interval-in-seconds: 5
+spring:
+  application:
+    name: service-a
